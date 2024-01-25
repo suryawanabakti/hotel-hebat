@@ -9,6 +9,10 @@ $no_handphone = $_POST['no_handphone'];
 $nama_tamu = $_POST['nama_tamu'];
 $type = $_POST['type'];
 
-mysqli_query($conn, "INSERT INTO pemesanan (nama_pemesan,email,no_handphone,nama_tamu,type,check_in,check_out,jumlah_kamar) VALUES ('$nama_pemesan', '$email','$no_handphone', '$nama_tamu', '$type', '$check_in' , '$check_out', '$jumlah_kamar')");
+$query = mysqli_query($conn, "INSERT INTO pemesanan (nama_pemesan,email,no_handphone,nama_tamu,type,check_in,check_out,jumlah_kamar) VALUES ('$nama_pemesan', '$email','$no_handphone', '$nama_tamu', '$type', '$check_in' , '$check_out', '$jumlah_kamar')");
 
-header("Location: /index.php");
+if ($query) {
+    header("Location: /index.php");
+} else {
+    echo "Something error";
+}
