@@ -1,5 +1,7 @@
 <?php
+require 'functions/koneksi.php';
 
+$fasilitas_kamar = mysqli_query($conn, "SELECT * FROM fasilitas_kamar");
 ?>
 
 <!DOCTYPE html>
@@ -30,7 +32,26 @@
 
             <button class="btn btn-primary">Submit</button>
         </form>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Nama kamar</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($fasilitas_kamar as $data) : ?>
+                    <tr>
+                        <td><?= $data['type'] ?></td>
+                        <td><?= $data['nama_fasilitas'] ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
     </div>
+
+
 
 </body>
 
