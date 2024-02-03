@@ -8,7 +8,7 @@ $type = $_POST['type'];
 $query = mysqli_query($conn, "INSERT INTO fasilitas_kamar (type, nama_fasilitas) VALUES ('$type', '$nama_fasilitas')");
 
 if ($query) {
-    header("Location: /fasilitas-kamar.php");
+    header("Location: /admin/fasilitas-kamar.php");
 } else {
     echo "Something Error";
 }
